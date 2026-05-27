@@ -647,6 +647,18 @@ pre {
   align-items: center;
 }
 
+.resource-preview-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.pricing-decision-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
 .resource-preview-card,
 .checklist-card,
 .worksheet-panel {
@@ -674,6 +686,12 @@ pre {
   background: var(--white);
   color: var(--teal-dark);
   border-color: var(--teal);
+}
+
+.pricing-decision-grid .button {
+  align-self: end;
+  width: 100%;
+  margin-top: 12px;
 }
 
 .resource-hero {
@@ -1320,6 +1338,7 @@ textarea,
   .sample-audit-grid,
   .scorecard-grid,
   .resource-preview-grid,
+  .pricing-decision-grid,
   .resource-hero-grid,
   .checklist-grid,
   .worksheet-grid,
