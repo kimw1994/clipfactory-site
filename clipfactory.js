@@ -70,6 +70,7 @@ const copySummary = document.querySelector("#copy-summary");
 const githubInquiry = document.querySelector("#github-inquiry");
 const fiverrServiceLink = document.querySelector("#fiverr-service-link");
 const copyFiverrSummary = document.querySelector("#copy-fiverr-summary");
+const packageSelectButtons = document.querySelectorAll("[data-package-select]");
 const hostedSubmit = document.querySelector('[data-submit-mode="hosted"]');
 const hostedSubmitNote = document.querySelector(".hosted-submit-note");
 const summaryState = document.querySelector("#summary-state");
@@ -486,6 +487,26 @@ async function copyAndOpenFiverr() {
 
 fiverrServiceLink?.addEventListener("click", copyAndOpenFiverr);
 copyFiverrSummary?.addEventListener("click", copyAndOpenFiverr);
+
+packageSelectButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const packageValue = button.dataset.packageSelect;
+    const requestedPackage = document.querySelector("#requested-package");
+    const inquirySection = document.querySelector("#inquiry");
+    const videoField = document.querySelector("#inquiry-video-url");
+
+    if (requestedPackage && packageValue) {
+      requestedPackage.value = packageValue;
+      summaryState.textContent = "Package selected";
+    }
+
+    inquirySection?.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    if (videoField) {
+      window.setTimeout(() => videoField.focus({ preventScroll: true }), 450);
+    }
+  });
+});
 
 copySummary?.addEventListener("click", async () => {
   const summary = inquirySummary.value;
