@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Buyer-Intent Clip Scorecard | ClipFactory</title>
+    <meta
+      name="description"
+      content="Score a podcast, webinar, founder interview, or B2B YouTube moment before turning it into a short-form clip."
+    >
+    <meta property="og:title" content="Buyer-Intent Clip Scorecard | ClipFactory">
+    <meta property="og:description" content="Use a five-point filter to decide whether a long-form B2B moment is worth editing into a short clip.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kimw1994.github.io/clipfactory-site/scorecard.html">
+    <meta property="og:image" content="https://kimw1994.github.io/clipfactory-site/assets/clipfactory-share-card.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Buyer-Intent Clip Scorecard | ClipFactory">
+    <meta name="twitter:description" content="Score buyer intent before editing long-form B2B content into short clips.">
+    <meta name="twitter:image" content="https://kimw1994.github.io/clipfactory-site/assets/clipfactory-share-card.png">
+    <link rel="canonical" href="https://kimw1994.github.io/clipfactory-site/scorecard.html">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="clipfactory-page scorecard-page">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="ClipFactory home">
+        <span class="brand-mark">C</span>
+        <span>ClipFactory</span>
+      </a>
+      <nav aria-label="Primary">
+        <a href="#score">Score</a>
+        <a href="#rules">Rules</a>
+        <a href="index.html#analyzer">Analyzer</a>
+        <a href="index.html#packages">Packages</a>
+      </nav>
+      <a class="header-cta" href="index.html#analyzer">Analyze a video</a>
+    </header>
+
+    <main id="top">
+      <section class="scorecard-tool-hero">
+        <div class="scorecard-tool-copy">
+          <p class="eyebrow">Buyer-intent clip filter</p>
+          <h1>Score one long-form moment before editing it into a short clip.</h1>
+          <p class="hero-copy">
+            Use this five-point filter for podcasts, webinars, founder interviews, and B2B YouTube episodes.
+            It helps you avoid polishing quotable moments that do not help the right buyer decide.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#score">Score a moment</a>
+            <a class="button secondary" href="index.html?src=scorecard-hero#analyzer">Get demo audit</a>
+          </div>
+        </div>
+        <aside class="score-summary-card" aria-label="Scorecard result preview">
+          <span class="score-label">Decision range</span>
+          <strong>8-10</strong>
+          <p>Strong candidate for a short-form clip if rights and source quality are clear.</p>
+          <span class="score-pill">No views, leads, revenue, or platform approval are guaranteed.</span>
+        </aside>
+      </section>
+
+      <section class="section tight" id="score">
+        <div class="section-heading">
+          <p class="eyebrow">Interactive scorecard</p>
+          <h2>Rate the candidate moment from 0 to 10.</h2>
+          <p>
+            Keep the first pass strict. A lower score does not mean the episode is bad; it means the moment may belong
+            in the full episode, newsletter, blog, or carousel before it becomes a short clip.
+          </p>
+        </div>
+
+        <div class="scorecard-tool-grid">
+          <form class="scorecard-form" id="buyer-intent-scorecard" novalidate>
+            <label>
+              Episode or clip URL <span class="optional-label">optional</span>
+              <input id="scorecard-url" name="episode_url" type="url" placeholder="https://youtube.com/watch?v=...">
+            </label>
+            <label>
+              Timestamp hint <span class="optional-label">optional</span>
+              <input id="scorecard-timestamp" name="timestamp_hint" type="text" placeholder="00:12:40 - 00:13:25">
+            </label>
+            <label>
+              Target platform
+              <select id="scorecard-platform" name="target_platform">
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="YouTube Shorts">YouTube Shorts</option>
+                <option value="TikTok">TikTok</option>
+                <option value="Instagram Reels">Instagram Reels</option>
+              </select>
+            </label>
+
+            <fieldset class="score-question">
+              <legend>First sentence tension</legend>
+              <div class="score-options" role="radiogroup" aria-label="First sentence tension">
+                <label><input type="radio" name="tension" value="0"><span>0 Needs setup</span></label>
+                <label><input type="radio" name="tension" value="1"><span>1 Some tension</span></label>
+                <label><input type="radio" name="tension" value="2" checked><span>2 Clear claim</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="score-question">
+              <legend>Standalone clarity</legend>
+              <div class="score-options" role="radiogroup" aria-label="Standalone clarity">
+                <label><input type="radio" name="clarity" value="0"><span>0 Cannot stand alone</span></label>
+                <label><input type="radio" name="clarity" value="1" checked><span>1 Needs caption</span></label>
+                <label><input type="radio" name="clarity" value="2"><span>2 Clear alone</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="score-question">
+              <legend>Buyer relevance</legend>
+              <div class="score-options" role="radiogroup" aria-label="Buyer relevance">
+                <label><input type="radio" name="buyer" value="0"><span>0 Broad</span></label>
+                <label><input type="radio" name="buyer" value="1"><span>1 Useful</span></label>
+                <label><input type="radio" name="buyer" value="2" checked><span>2 Decision help</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="score-question">
+              <legend>Tactical value</legend>
+              <div class="score-options" role="radiogroup" aria-label="Tactical value">
+                <label><input type="radio" name="tactical" value="0"><span>0 Opinion only</span></label>
+                <label><input type="radio" name="tactical" value="1" checked><span>1 Useful idea</span></label>
+                <label><input type="radio" name="tactical" value="2"><span>2 Workflow/example</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="score-question">
+              <legend>Platform fit</legend>
+              <div class="score-options" role="radiogroup" aria-label="Platform fit">
+                <label><input type="radio" name="platformFit" value="0"><span>0 Unclear</span></label>
+                <label><input type="radio" name="platformFit" value="1" checked><span>1 Works with edits</span></label>
+                <label><input type="radio" name="platformFit" value="2"><span>2 Clear angle</span></label>
+              </div>
+            </fieldset>
+
+            <button class="button primary" type="submit">Update score</button>
+          </form>
+
+          <article class="score-result-panel" aria-live="polite">
+            <div class="panel-header">
+              <span>Clip decision</span>
+              <span id="scorecard-state">Ready</span>
+            </div>
+            <div class="score-meter" aria-label="Current score">
+              <strong id="scorecard-total">7</strong>
+              <span>/10</span>
+            </div>
+            <h3 id="scorecard-verdict">Maybe useful, but strengthen the hook.</h3>
+            <p id="scorecard-guidance">
+              Tighten the opening sentence, add caption context, or choose a more decision-focused timestamp before editing.
+            </p>
+            <textarea id="scorecard-summary" readonly rows="10"></textarea>
+            <div class="summary-actions">
+              <button class="button primary" id="copy-scorecard-summary" type="button">Copy score summary</button>
+              <a class="button secondary dark-button" id="scorecard-analyzer-link" href="index.html?src=scorecard-result#analyzer">Open free analyzer</a>
+            </div>
+            <p class="contact-note">
+              Submit only content you own or have permission to process and republish. This scorecard is a planning aid, not a promise of performance.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section scorecard-rules-band" id="rules">
+        <div class="section-heading">
+          <p class="eyebrow">Decision rules</p>
+          <h2>Use the score to pick the next action.</h2>
+        </div>
+        <div class="three-col">
+          <article class="feature">
+            <span class="feature-icon">8-10</span>
+            <h3>Strong clip candidate</h3>
+            <p>Send it through the analyzer or request a paid audit if the episode has several moments like this.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-icon">6-7</span>
+            <h3>Needs packaging</h3>
+            <p>Try a sharper hook, platform-specific caption, or tighter timestamp before spending editing time.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-icon">0-5</span>
+            <h3>Not first edit</h3>
+            <p>Keep it for the full episode, newsletter, blog, or carousel while looking for a clearer clip moment.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>ClipFactory is a manual video repurposing service. Results depend on the source episode, audience, editing quality, and publishing consistency.</p>
+      <p>Only submit videos you own or have permission to process and republish. No views, revenue, follower growth, or platform approval is guaranteed.</p>
+    </footer>
+
+    <script src="scorecard.js"></script>
+  </body>
+</html>
