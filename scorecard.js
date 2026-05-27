@@ -12,7 +12,8 @@ const scorecardResultPanel = document.querySelector(".score-result-panel");
 
 const scoreFields = ["tension", "clarity", "buyer", "tactical", "platformFit"];
 const githubIssueBase = "https://github.com/kimw1994/clipfactory-site/issues/new";
-const linkedinReplyFallbackUrl = "https://www.linkedin.com/feed/update/urn:li:share:7465347581661970432";
+const linkedinReplyFallbackUrl = "https://www.linkedin.com/feed/update/urn:li:share:7465434280165261312";
+const fiverrServiceUrl = "https://www.fiverr.com/vitalease/design-an-ai-workflow-automation-for-your-small-business";
 
 function selectedScore(name) {
   return Number(document.querySelector(`input[name="${name}"]:checked`)?.value || 0);
@@ -223,6 +224,18 @@ async function handleAuditAction(action) {
 
     if (!opened) {
       showScorecardError("The browser blocked the GitHub window. Copy the audit inquiry and open the GitHub repo link manually.");
+    }
+    return;
+  }
+
+  if (action === "fiverr-audit-inquiry") {
+    const copyPromise = copyTextToClipboard(prepared.summary);
+    const opened = window.open(fiverrServiceUrl, "_blank", "noopener,noreferrer");
+    await copyPromise;
+    scorecardState.textContent = opened ? "Opening Fiverr" : "Popup blocked";
+
+    if (!opened) {
+      showScorecardError("The browser blocked the Fiverr window. The audit inquiry was copied; open the Fiverr service link manually.");
     }
   }
 }

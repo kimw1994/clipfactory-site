@@ -68,12 +68,15 @@ const inquirySummary = document.querySelector("#inquiry-summary");
 const mailtoLink = document.querySelector("#mailto-link");
 const copySummary = document.querySelector("#copy-summary");
 const githubInquiry = document.querySelector("#github-inquiry");
+const fiverrServiceLink = document.querySelector("#fiverr-service-link");
+const copyFiverrSummary = document.querySelector("#copy-fiverr-summary");
 const hostedSubmit = document.querySelector('[data-submit-mode="hosted"]');
 const hostedSubmitNote = document.querySelector(".hosted-submit-note");
 const summaryState = document.querySelector("#summary-state");
 const trafficSourceInput = document.querySelector("#traffic-source");
 const githubIssueBase = "https://github.com/kimw1994/clipfactory-site/issues/new";
-const linkedinReplyFallbackUrl = "https://www.linkedin.com/feed/update/urn:li:share:7465347581661970432";
+const linkedinReplyFallbackUrl = "https://www.linkedin.com/feed/update/urn:li:share:7465434280165261312";
+const fiverrServiceUrl = "https://www.fiverr.com/vitalease/design-an-ai-workflow-automation-for-your-small-business";
 
 function cleanValue(value) {
   return String(value || "").trim();
@@ -182,6 +185,7 @@ function renderOpportunities(opportunities) {
         <button class="button primary" type="button" data-output-action="copy-public-inquiry">Copy public inquiry</button>
         <button class="button secondary dark-button" type="button" data-output-action="linkedin-public-reply">Copy + reply on LinkedIn</button>
         <button class="button secondary dark-button" type="button" data-output-action="github-public-inquiry">Open public GitHub inquiry</button>
+        <button class="button secondary dark-button" type="button" data-output-action="fiverr-public-inquiry">Copy + open Fiverr service</button>
         <a class="button secondary dark-button" href="#inquiry">Edit inquiry details</a>
       </div>
     `;
@@ -389,6 +393,19 @@ clipResults?.addEventListener("click", async (event) => {
       auditState.textContent = "Popup blocked";
       showError(inquiryError, "The browser blocked the GitHub inquiry window. Copy the public summary and open the GitHub repo link manually.");
     }
+    return;
+  }
+
+  if (actionButton.dataset.outputAction === "fiverr-public-inquiry") {
+    const copyPromise = copyTextToClipboard(prepared.summary);
+    const opened = window.open(fiverrServiceUrl, "_blank", "noopener,noreferrer");
+    await copyPromise;
+    summaryState.textContent = "Copied for Fiverr";
+    auditState.textContent = opened ? "Opening Fiverr" : "Popup blocked";
+
+    if (!opened) {
+      showError(inquiryError, "The browser blocked the Fiverr window. The public summary was copied; open the Fiverr service link manually.");
+    }
   }
 });
 
@@ -447,6 +464,25 @@ githubInquiry?.addEventListener("click", () => {
     showError(inquiryError, "The browser blocked the GitHub inquiry window. Copy the public summary and open the GitHub repo link manually.");
   }
 });
+
+async function copyAndOpenFiverr() {
+  const prepared = preparePublicInquiryFromSyncedFields();
+  if (!prepared) {
+    return;
+  }
+
+  const copyPromise = copyTextToClipboard(prepared.summary);
+  const opened = window.open(fiverrServiceUrl, "_blank", "noopener,noreferrer");
+  await copyPromise;
+  summaryState.textContent = "Copied for Fiverr";
+
+  if (!opened) {
+    showError(inquiryError, "The browser blocked the Fiverr window. The public summary was copied; open the Fiverr service link manually.");
+  }
+}
+
+fiverrServiceLink?.addEventListener("click", copyAndOpenFiverr);
+copyFiverrSummary?.addEventListener("click", copyAndOpenFiverr);
 
 copySummary?.addEventListener("click", async () => {
   const summary = inquirySummary.value;
