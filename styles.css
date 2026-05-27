@@ -622,6 +622,49 @@ pre {
   color: #ffd18c;
 }
 
+.mini-audit-band {
+  background: #f7f8f5;
+}
+
+.mini-audit-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.mini-audit-card {
+  min-height: 260px;
+  padding: 22px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.mini-audit-card p {
+  color: var(--muted);
+}
+
+.mini-audit-card ul {
+  margin-bottom: 0;
+}
+
+.mini-audit-cta {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  background: var(--ink);
+  color: var(--white);
+}
+
+.mini-audit-cta p {
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.mini-audit-cta .feature-icon {
+  color: #ffd18c;
+}
+
 .sample-audit-band {
   background: #fff7ef;
 }
@@ -794,6 +837,7 @@ textarea,
   .three-col,
   .sample-audit-grid,
   .scorecard-grid,
+  .mini-audit-grid,
   .two-col,
   .clip-hero,
   .analyzer-grid,
