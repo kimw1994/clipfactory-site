@@ -1,6 +1,7 @@
 const sampleAuditUrl = document.querySelector("#sample-audit-url");
 const sampleAuditPlatform = document.querySelector("#sample-audit-platform");
 const sampleAuditCadence = document.querySelector("#sample-audit-cadence");
+const sampleAuditAvoidList = document.querySelector("#sample-audit-avoid-list");
 const sampleAuditRights = document.querySelector("#sample-audit-rights");
 const sampleAuditError = document.querySelector("#sample-audit-error");
 const sampleAuditSummary = document.querySelector("#sample-audit-summary");
@@ -35,6 +36,7 @@ function buildSampleAuditInquiry() {
   const videoUrl = cleanValue(sampleAuditUrl.value);
   const platform = cleanValue(sampleAuditPlatform.value);
   const cadence = cleanValue(sampleAuditCadence.value);
+  const avoidList = cleanValue(sampleAuditAvoidList?.value) || "Not provided yet; please ask before payment";
 
   return [
     "ClipFactory sample audit inquiry",
@@ -43,6 +45,7 @@ function buildSampleAuditInquiry() {
     `Video URL: ${videoUrl}`,
     `Target platform: ${platform}`,
     `Publishing cadence: ${cadence}`,
+    `Avoid-list: ${avoidList}`,
     "Requested package: $149 Clip Audit",
     "Rights confirmation: Yes, I own this content or have permission to process, edit, and republish it.",
     "",

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Roofing service preview image</title>
+  <desc id="desc">A clean illustrated home exterior used as a neutral roofing website preview asset.</desc>
+  <rect width="1200" height="760" fill="#f3efe7"/>
+  <rect x="0" y="530" width="1200" height="230" fill="#dfe8df"/>
+  <path d="M120 520 C250 455 360 465 470 520 C610 590 770 590 930 520 C1040 470 1120 470 1200 500 L1200 760 L0 760 L0 575 C38 550 76 535 120 520Z" fill="#b7c9bd"/>
+  <rect x="250" y="320" width="650" height="260" rx="6" fill="#fffaf0"/>
+  <rect x="295" y="390" width="120" height="190" fill="#d84f2a"/>
+  <rect x="465" y="415" width="145" height="100" rx="4" fill="#d9eef0"/>
+  <rect x="665" y="415" width="145" height="100" rx="4" fill="#d9eef0"/>
+  <path d="M190 330 L575 150 L960 330 Z" fill="#183042"/>
+  <path d="M240 330 L575 175 L910 330 Z" fill="#244a5f"/>
+  <path d="M575 150 L960 330 L910 330 L575 175 Z" fill="#112635"/>
+  <rect x="450" y="255" width="95" height="45" fill="#183042"/>
+  <rect x="440" y="235" width="115" height="28" fill="#d84f2a"/>
+  <circle cx="1000" cy="170" r="66" fill="#f0b94a"/>
+  <rect x="175" y="585" width="830" height="16" rx="8" fill="#7e8f7e"/>
+  <g fill="#224a5f" opacity="0.16">
+    <rect x="270" y="350" width="600" height="12" rx="6"/>
+    <rect x="305" y="368" width="530" height="8" rx="4"/>
+  </g>
+  <g fill="#ffffff" opacity="0.42">
+    <rect x="490" y="435" width="42" height="80"/>
+    <rect x="690" y="435" width="42" height="80"/>
+  </g>
+</svg>

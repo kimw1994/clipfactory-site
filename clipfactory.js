@@ -229,6 +229,7 @@ function getInquiryData() {
     targetPlatform: cleanValue(document.querySelector("#inquiry-platform").value),
     frequency: cleanValue(document.querySelector("#publishing-frequency").value),
     clipGoal: cleanValue(document.querySelector("#inquiry-goal").value),
+    avoidList: cleanValue(document.querySelector("#inquiry-avoid-list")?.value),
     trafficSource: cleanValue(trafficSourceInput?.value) || "direct",
     rightsConfirmed: document.querySelector("#inquiry-rights").checked
   };
@@ -258,6 +259,7 @@ function buildInquirySummary(data) {
     `Target platform: ${data.targetPlatform}`,
     `Publishing frequency: ${data.frequency}`,
     `Main goal: ${data.clipGoal}`,
+    `Avoid-list: ${data.avoidList || "Not provided yet; please ask before payment"}`,
     `Source: ${data.trafficSource}`,
     "Rights confirmation: Yes, I own this content or have permission to process, edit, and republish it.",
     "",
@@ -277,6 +279,7 @@ function buildPublicInquirySummary(data) {
     `Target platform: ${data.targetPlatform}`,
     `Publishing frequency: ${data.frequency}`,
     `Main goal: ${data.clipGoal}`,
+    `Avoid-list: ${data.avoidList || "Not provided yet; please ask before payment"}`,
     `Source: ${data.trafficSource}`,
     "Rights confirmation: Yes, I own this content or have permission to process, edit, and republish it.",
     "",

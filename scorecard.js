@@ -93,6 +93,7 @@ function buildAuditInquirySummary(score, decision) {
   const episodeUrl = cleanScorecardValue("#scorecard-url");
   const timestampHint = cleanScorecardValue("#scorecard-timestamp") || "Not provided";
   const targetPlatform = cleanScorecardValue("#scorecard-platform");
+  const avoidList = cleanScorecardValue("#scorecard-avoid-list") || "Not provided yet; please ask before payment";
 
   return [
     "ClipFactory scorecard audit inquiry",
@@ -104,6 +105,7 @@ function buildAuditInquirySummary(score, decision) {
     `Score: ${score}/10`,
     `Decision: ${decision.verdict}`,
     `Scorecard note: ${decision.guidance}`,
+    `Avoid-list: ${avoidList}`,
     "Rights confirmation: Yes, I own this content or have permission to process, edit, and republish it.",
     "",
     "Requested next step:",
