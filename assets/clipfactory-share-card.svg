@@ -6,9 +6,9 @@
   <rect x="110" y="112" width="86" height="86" rx="18" fill="#17211f"/>
   <text x="153" y="168" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="800">C</text>
   <text x="220" y="148" fill="#0b746b" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800">ClipFactory</text>
-  <text x="110" y="285" fill="#17211f" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="900">Turn one long-form</text>
-  <text x="110" y="370" fill="#17211f" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="900">episode into clips.</text>
-  <text x="112" y="452" fill="#5b6763" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="600">Hooks, titles, captions, platform fit, and editor notes.</text>
+  <text x="110" y="285" fill="#17211f" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="900">Turn long-form</text>
+  <text x="110" y="366" fill="#17211f" font-family="Arial, Helvetica, sans-serif" font-size="68" font-weight="900">video into clips.</text>
+  <text x="112" y="452" fill="#5b6763" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="600">Hooks, titles, captions, and editor notes.</text>
   <rect x="784" y="114" width="286" height="170" rx="18" fill="#0b746b"/>
   <text x="927" y="174" text-anchor="middle" fill="#ffd18c" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800">00:12:40 - 00:13:25</text>
   <text x="927" y="222" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800">Best short-form</text>
