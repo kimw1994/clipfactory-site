@@ -68,6 +68,7 @@ const inquirySummary = document.querySelector("#inquiry-summary");
 const mailtoLink = document.querySelector("#mailto-link");
 const copySummary = document.querySelector("#copy-summary");
 const summaryState = document.querySelector("#summary-state");
+const trafficSourceInput = document.querySelector("#traffic-source");
 
 function cleanValue(value) {
   return String(value || "").trim();
@@ -80,6 +81,25 @@ function isValidUrl(value) {
   } catch {
     return false;
   }
+}
+
+function getTrafficSource() {
+  const params = new URLSearchParams(window.location.search);
+  const taggedSource = params.get("src") || params.get("utm_campaign") || params.get("utm_source");
+
+  if (taggedSource) {
+    return taggedSource.slice(0, 120);
+  }
+
+  if (document.referrer) {
+    try {
+      return new URL(document.referrer).hostname.slice(0, 120);
+    } catch {
+      return "referrer";
+    }
+  }
+
+  return "direct";
 }
 
 function showError(element, message) {
@@ -202,6 +222,7 @@ function getInquiryData() {
     targetPlatform: cleanValue(document.querySelector("#inquiry-platform").value),
     frequency: cleanValue(document.querySelector("#publishing-frequency").value),
     clipGoal: cleanValue(document.querySelector("#inquiry-goal").value),
+    trafficSource: cleanValue(trafficSourceInput?.value) || "direct",
     rightsConfirmed: document.querySelector("#inquiry-rights").checked
   };
 }
@@ -232,6 +253,7 @@ function buildInquirySummary(data) {
     `Target platform: ${data.targetPlatform}`,
     `Publishing frequency: ${data.frequency}`,
     `Main goal: ${data.clipGoal}`,
+    `Source: ${data.trafficSource}`,
     "Rights confirmation: Yes, I own this content or have permission to process, edit, and republish it.",
     "",
     "Requested next step:",
@@ -303,3 +325,7 @@ copySummary?.addEventListener("click", async () => {
     summaryState.textContent = "Copied";
   }
 });
+
+if (trafficSourceInput) {
+  trafficSourceInput.value = getTrafficSource();
+}
