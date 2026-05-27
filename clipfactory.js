@@ -67,8 +67,12 @@ const inquiryError = document.querySelector("#inquiry-error");
 const inquirySummary = document.querySelector("#inquiry-summary");
 const mailtoLink = document.querySelector("#mailto-link");
 const copySummary = document.querySelector("#copy-summary");
+const githubInquiry = document.querySelector("#github-inquiry");
+const hostedSubmit = document.querySelector('[data-submit-mode="hosted"]');
+const hostedSubmitNote = document.querySelector(".hosted-submit-note");
 const summaryState = document.querySelector("#summary-state");
 const trafficSourceInput = document.querySelector("#traffic-source");
+const githubIssueBase = "https://github.com/kimw1994/clipfactory-site/issues/new";
 
 function cleanValue(value) {
   return String(value || "").trim();
@@ -263,6 +267,34 @@ function buildInquirySummary(data) {
   ].join("\n");
 }
 
+function buildPublicInquirySummary(data) {
+  return [
+    "ClipFactory public inquiry",
+    "",
+    `Name: ${data.name}`,
+    `Video URL: ${data.videoUrl}`,
+    `Target platform: ${data.targetPlatform}`,
+    `Publishing frequency: ${data.frequency}`,
+    `Main goal: ${data.clipGoal}`,
+    `Source: ${data.trafficSource}`,
+    "Rights confirmation: Yes, I own this content or have permission to process, edit, and republish it.",
+    "",
+    "Requested next step:",
+    "Please review this public episode and tell me whether a $149 Clip Audit is the right next step.",
+    "",
+    "Privacy note: this GitHub issue is public. Do not include private links, passwords, customer data, or confidential details."
+  ].join("\n");
+}
+
+function buildGithubIssueUrl(data) {
+  const params = new URLSearchParams({
+    title: `ClipFactory inquiry - ${data.name}`,
+    body: buildPublicInquirySummary(data)
+  });
+
+  return `${githubIssueBase}?${params.toString()}`;
+}
+
 analyzerForm?.addEventListener("submit", (event) => {
   event.preventDefault();
   const data = getAnalyzerData();
@@ -296,6 +328,13 @@ inquiryForm?.addEventListener("submit", (event) => {
   clearError(inquiryError);
 
   if (submitMode === "hosted") {
+    if (window.location.hostname.endsWith("github.io")) {
+      event.preventDefault();
+      inquirySummary.value = buildInquirySummary(data);
+      summaryState.textContent = "Hosted form unavailable here";
+      showError(inquiryError, "This public GitHub Pages version cannot capture hosted form submissions. Copy the summary or open a public GitHub inquiry instead.");
+      return;
+    }
     summaryState.textContent = "Submitting";
     return;
   }
@@ -307,6 +346,27 @@ inquiryForm?.addEventListener("submit", (event) => {
   mailtoLink.classList.add("disabled-link");
   mailtoLink.setAttribute("aria-disabled", "true");
   mailtoLink.href = "#";
+});
+
+githubInquiry?.addEventListener("click", () => {
+  const data = getInquiryData();
+  const validationMessage = validateInquiry(data);
+
+  if (validationMessage) {
+    showError(inquiryError, validationMessage);
+    summaryState.textContent = "Needs input";
+    return;
+  }
+
+  clearError(inquiryError);
+  inquirySummary.value = buildPublicInquirySummary(data);
+  summaryState.textContent = "Opening GitHub";
+  const opened = window.open(buildGithubIssueUrl(data), "_blank", "noopener,noreferrer");
+
+  if (!opened) {
+    summaryState.textContent = "Copy public summary";
+    showError(inquiryError, "The browser blocked the GitHub inquiry window. Copy the public summary and open the GitHub repo link manually.");
+  }
 });
 
 copySummary?.addEventListener("click", async () => {
@@ -328,4 +388,12 @@ copySummary?.addEventListener("click", async () => {
 
 if (trafficSourceInput) {
   trafficSourceInput.value = getTrafficSource();
+}
+
+if (hostedSubmit && window.location.hostname.endsWith("github.io")) {
+  hostedSubmit.hidden = true;
+}
+
+if (hostedSubmitNote && window.location.hostname.endsWith("github.io")) {
+  hostedSubmitNote.textContent = "This public GitHub Pages version cannot collect hosted form submissions. Use Copy summary, or open a public GitHub inquiry without private details.";
 }
