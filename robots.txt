@@ -1,2 +1,4 @@
 User-agent: *
 Disallow: /home-service-previews/
+
+Sitemap: https://kimw1994.github.io/clipfactory-site/sitemap.xml

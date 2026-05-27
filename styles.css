@@ -631,6 +631,171 @@ pre {
   background: #f3f1e9;
 }
 
+.resource-band,
+.resource-nav-band,
+.worksheet-band {
+  background: #edf6f2;
+}
+
+.resource-preview-grid,
+.resource-hero-grid,
+.worksheet-grid,
+.resource-cta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.8fr);
+  gap: clamp(22px, 4vw, 42px);
+  align-items: center;
+}
+
+.resource-preview-card,
+.checklist-card,
+.worksheet-panel {
+  min-height: 100%;
+  padding: 24px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.resource-preview-card {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.resource-preview-card p,
+.checklist-card p,
+.resource-cta p {
+  color: var(--muted);
+}
+
+.resource-preview-card .button.secondary {
+  background: var(--white);
+  color: var(--teal-dark);
+  border-color: var(--teal);
+}
+
+.resource-hero {
+  padding: clamp(52px, 7vw, 88px) clamp(18px, 5vw, 64px) clamp(34px, 5vw, 58px);
+  background:
+    linear-gradient(120deg, rgba(23, 33, 31, 0.9), rgba(11, 116, 107, 0.7)),
+    url("https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=1800&q=82") center / cover no-repeat;
+  color: var(--white);
+}
+
+.resource-hero-copy h1 {
+  max-width: 880px;
+}
+
+.resource-visual {
+  display: grid;
+  gap: 14px;
+}
+
+.resource-visual img {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.resource-visual-note {
+  display: grid;
+  gap: 6px;
+  max-width: 520px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 8px;
+}
+
+.resource-visual-note span {
+  color: #ffd18c;
+  font-size: 0.78rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.resource-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.resource-nav a {
+  padding: 10px 13px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--teal-dark);
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.checklist-card {
+  min-height: 230px;
+}
+
+.worksheet-list {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+}
+
+.worksheet-list div {
+  display: grid;
+  gap: 4px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+.worksheet-list div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.worksheet-list dt {
+  color: var(--teal-dark);
+  font-weight: 900;
+}
+
+.worksheet-list dd {
+  margin: 0;
+  color: var(--muted);
+}
+
+.platform-fit-band {
+  background: #f8f4e9;
+}
+
+.platform-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.resource-cta-band {
+  background: var(--white);
+}
+
+.resource-cta {
+  padding: 28px;
+  background: #f3f1e9;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.resource-cta .button {
+  justify-self: end;
+}
+
 .scorecard-grid {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -1154,6 +1319,12 @@ textarea,
   .three-col,
   .sample-audit-grid,
   .scorecard-grid,
+  .resource-preview-grid,
+  .resource-hero-grid,
+  .checklist-grid,
+  .worksheet-grid,
+  .platform-grid,
+  .resource-cta,
   .scorecard-tool-hero,
   .scorecard-tool-grid,
   .sample-audit-hero,
@@ -1267,6 +1438,22 @@ textarea,
 
   .score-options {
     grid-template-columns: 1fr;
+  }
+
+  .resource-hero {
+    padding: 38px 20px 30px;
+  }
+
+  .resource-nav {
+    display: grid;
+  }
+
+  .resource-cta {
+    padding: 20px;
+  }
+
+  .resource-cta .button {
+    justify-self: stretch;
   }
 
   .score-summary-card,
