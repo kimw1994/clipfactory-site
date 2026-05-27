@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ClipFactory | Long-Form Video Repurposing</title>
+    <meta
+      name="description"
+      content="ClipFactory turns one long-form podcast, webinar, or founder interview into short-form clip opportunities, captions, and a human-reviewed repurposing plan."
+    >
+    <meta property="og:title" content="ClipFactory | Long-Form Video Repurposing">
+    <meta property="og:description" content="Turn one long-form B2B episode into short-form clip opportunities, hooks, titles, captions, and platform fit notes.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/clipfactory-share-card.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ClipFactory | Long-Form Video Repurposing">
+    <meta name="twitter:description" content="Get a sample clip map for podcasts, webinars, founder interviews, and B2B YouTube episodes.">
+    <meta name="twitter:image" content="assets/clipfactory-share-card.svg">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="clipfactory-page">
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="ClipFactory home">
+        <span class="brand-mark">C</span>
+        <span>ClipFactory</span>
+      </a>
+      <nav aria-label="Primary">
+        <a href="#analyzer">Free analysis</a>
+        <a href="#sample-audit">Sample</a>
+        <a href="#examples">Output</a>
+        <a href="#packages">Packages</a>
+        <a href="#inquiry">Inquiry</a>
+      </nav>
+      <a class="header-cta" href="#analyzer">Analyze a video</a>
+    </header>
+
+    <main id="top">
+      <section class="clip-hero">
+        <div class="clip-hero-copy">
+          <p class="eyebrow">For B2B podcasts, advisors, and founder-led channels</p>
+          <h1>Turn one long-form episode into 8-20 publish-ready clips.</h1>
+          <p class="hero-copy">
+            ClipFactory helps you find short-form moments, hooks, titles, captions, and platform angles
+            from podcasts, webinars, founder interviews, and YouTube episodes.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#analyzer">Get a free clip analysis</a>
+            <a class="button secondary" href="#packages">View packages</a>
+          </div>
+          <dl class="proof-strip" aria-label="ClipFactory highlights">
+            <div>
+              <dt>5</dt>
+              <dd>sample opportunities</dd>
+            </div>
+            <div>
+              <dt>$149</dt>
+              <dd>manual clip audit</dd>
+            </div>
+            <div>
+              <dt>48h</dt>
+              <dd>first paid delivery</dd>
+            </div>
+          </dl>
+        </div>
+        <div class="clip-hero-media" aria-label="Short-form content production preview">
+          <div class="video-frame">
+            <div class="video-bar">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="timeline-card">
+              <span class="clip-tag">00:12:40 - 00:13:25</span>
+              <h2>That one sentence your audience would replay.</h2>
+              <p>Hook, title, caption, and platform fit are mapped before editing starts.</p>
+            </div>
+            <div class="clip-stack" aria-hidden="true">
+              <span>LinkedIn thought clip</span>
+              <span>YouTube Shorts teaser</span>
+              <span>Reels caption draft</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section tight" id="analyzer">
+        <div class="section-heading">
+          <p class="eyebrow">Free demo audit</p>
+          <h2>Paste a public episode and see the shape of a clip plan.</h2>
+          <p>
+            This first version does not process the video file automatically. It creates a realistic sample
+            opportunity map so you can decide whether a human $149 Clip Audit is worth requesting.
+          </p>
+        </div>
+
+        <div class="analyzer-grid">
+          <form class="analyzer-form" id="clip-analyzer-form" novalidate>
+            <label>
+              Public video URL
+              <input id="video-url" name="video_url" type="url" placeholder="https://youtube.com/watch?v=..." required>
+            </label>
+            <label>
+              Content type
+              <select id="content-type" name="content_type" required>
+                <option value="podcast">Podcast</option>
+                <option value="webinar">Webinar</option>
+                <option value="founder interview">Founder interview</option>
+                <option value="YouTube episode">YouTube episode</option>
+                <option value="LinkedIn live">LinkedIn live</option>
+              </select>
+            </label>
+            <label>
+              Target platform
+              <select id="target-platform" name="target_platform" required>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="YouTube Shorts">YouTube Shorts</option>
+                <option value="TikTok">TikTok</option>
+                <option value="Instagram Reels">Instagram Reels</option>
+              </select>
+            </label>
+            <label>
+              Clip goal
+              <select id="clip-goal" name="clip_goal" required>
+                <option value="authority">Authority</option>
+                <option value="leads">Leads</option>
+                <option value="education">Education</option>
+                <option value="product awareness">Product awareness</option>
+              </select>
+            </label>
+            <label>
+              Email for the full audit quote
+              <input id="analyzer-email" name="email" type="email" placeholder="you@example.com" required>
+            </label>
+            <label class="checkbox-row">
+              <input id="rights-confirmation" name="rights_confirmation" type="checkbox" required>
+              <span>I confirm I own this content or have permission to process, edit, and republish it.</span>
+            </label>
+            <p class="form-error" id="analyzer-error" role="alert"></p>
+            <button class="button primary" type="submit">Generate sample clip opportunities</button>
+          </form>
+
+          <article class="audit-output" id="examples" aria-live="polite">
+            <div class="panel-header">
+              <span>Sample clip output</span>
+              <span id="audit-state">Ready</span>
+            </div>
+            <div id="clip-results" class="empty-output">
+              <h3>Your demo audit will appear here.</h3>
+              <p>
+                The output includes five clip opportunities with timestamp hints, hooks, titles, captions,
+                platform fit, and the reason each moment could work.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section clip-process-band">
+        <div class="section-heading">
+          <p class="eyebrow">What happens after the free analysis</p>
+          <h2>Human review first, automation later.</h2>
+        </div>
+        <div class="three-col">
+          <article class="feature">
+            <span class="feature-icon">01</span>
+            <h3>Clip map</h3>
+            <p>We review the episode and mark the strongest hooks, standalone ideas, and platform fits.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-icon">02</span>
+            <h3>Short-form package</h3>
+            <p>You receive titles, captions, suggested cuts, and editing notes ready for a human editor.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-icon">03</span>
+            <h3>Monthly rhythm</h3>
+            <p>Once the format works, one long episode can become a repeatable weekly content pipeline.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section sample-audit-band" id="sample-audit">
+        <div class="section-heading">
+          <p class="eyebrow">Owned sample audit</p>
+          <h2>What a paid Clip Audit looks like before editing starts.</h2>
+          <p>
+            This is a fictional B2B founder interview example. It shows the decision layer:
+            which moments should become clips, why they work, and how an editor should handle them.
+          </p>
+        </div>
+        <div class="sample-audit-grid">
+          <article class="sample-audit-card">
+            <div class="panel-header">
+              <span>Clip opportunity</span>
+              <span>00:07:20 - 00:08:05</span>
+            </div>
+            <h3>Stop publishing the intro. Publish the first real objection.</h3>
+            <dl>
+              <div>
+                <dt>Hook</dt>
+                <dd>"Most founder videos do not fail because the ideas are weak. They fail because the useful part starts too late."</dd>
+              </div>
+              <div>
+                <dt>Platform fit</dt>
+                <dd>LinkedIn: strong for consultants, SaaS founders, and creator-led service businesses.</dd>
+              </div>
+              <div>
+                <dt>Editor note</dt>
+                <dd>Cut straight into the objection. Use large subtitles for the first sentence and remove the host setup.</dd>
+              </div>
+            </dl>
+          </article>
+          <article class="sample-audit-card">
+            <div class="panel-header">
+              <span>Clip opportunity</span>
+              <span>00:18:45 - 00:19:30</span>
+            </div>
+            <h3>The 3-part short-form test for a long interview.</h3>
+            <dl>
+              <div>
+                <dt>Hook</dt>
+                <dd>"If this moment cannot stand alone, it is not the first clip. It may still belong in the carousel, newsletter, or full episode."</dd>
+              </div>
+              <div>
+                <dt>Platform fit</dt>
+                <dd>YouTube Shorts: useful as a searchable teaser that sends viewers to the complete episode.</dd>
+              </div>
+              <div>
+                <dt>Caption</dt>
+                <dd>Before editing, test the moment for hook, standalone value, and next-step clarity.</dd>
+              </div>
+            </dl>
+          </article>
+          <article class="sample-audit-card cta-card">
+            <span class="feature-icon">Deliverable</span>
+            <h3>Paid audits include 10-20 opportunities like this.</h3>
+            <p>
+              You get timestamp hints, hooks, title ideas, captions, platform fit, and editor handoff notes.
+              No payment is collected until scope and delivery date are written.
+            </p>
+            <a class="button primary" href="docs/clipfactory-sample-audit.md">Open full sample report</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="packages">
+        <div class="section-heading">
+          <p class="eyebrow">Packages</p>
+          <h2>Start with one episode before turning it into a monthly workflow.</h2>
+        </div>
+        <div class="pricing-grid">
+          <article class="price-card">
+            <h3>Clip Audit</h3>
+            <p class="price">$149</p>
+            <p>One long-form episode reviewed for clip opportunities, hooks, titles, and captions.</p>
+            <ul>
+              <li>10-20 clip opportunities</li>
+              <li>Hook and title suggestions</li>
+              <li>Platform fit notes</li>
+            </ul>
+          </article>
+          <article class="price-card highlighted">
+            <h3>Starter</h3>
+            <p class="price">$499/mo</p>
+            <p>One long-form episode per week turned into short-form planning assets.</p>
+            <ul>
+              <li>Up to 8 clips per week</li>
+              <li>Captions and posting notes</li>
+              <li>Weekly delivery board</li>
+            </ul>
+          </article>
+          <article class="price-card">
+            <h3>Growth</h3>
+            <p class="price">$999/mo</p>
+            <p>For active B2B channels that publish interviews, webinars, or podcast episodes weekly.</p>
+            <ul>
+              <li>Up to 20 clips per week</li>
+              <li>LinkedIn and short-video variants</li>
+              <li>Monthly content review</li>
+            </ul>
+          </article>
+          <article class="price-card">
+            <h3>Done-for-you</h3>
+            <p class="price">$1,999/mo</p>
+            <p>Planning, editing instructions, publishing calendar, and review support for a content team.</p>
+            <ul>
+              <li>Clip plan and delivery calendar</li>
+              <li>Editor handoff notes</li>
+              <li>Monthly performance review</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section intake-band" id="inquiry">
+        <div class="section-heading">
+          <p class="eyebrow">Request a quote</p>
+          <h2>Send the episode details for a manual $149 Clip Audit quote.</h2>
+          <p>
+            No payment is collected on this page. Prepare the summary, copy it, and send it through the active contact channel shown wherever you found ClipFactory.
+          </p>
+        </div>
+
+        <div class="inquiry-grid">
+          <form
+            class="intake-form clip-inquiry-form"
+            id="clip-inquiry-form"
+            name="clipfactory-inquiry"
+            method="POST"
+            action="thanks.html"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            novalidate
+          >
+            <input type="hidden" name="form-name" value="clipfactory-inquiry">
+            <p class="hidden-field">
+              <label>Do not fill this out if you are human <input name="bot-field"></label>
+            </p>
+            <label>
+              Name
+              <input id="buyer-name" name="name" type="text" placeholder="Alex Morgan" required>
+            </label>
+            <label>
+              Email
+              <input id="buyer-email" name="email" type="email" placeholder="you@example.com" required>
+            </label>
+            <label>
+              Video link
+              <input id="inquiry-video-url" name="video_url" type="url" placeholder="https://youtube.com/watch?v=..." required>
+            </label>
+            <label>
+              Target platform
+              <select id="inquiry-platform" name="target_platform" required>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="YouTube Shorts">YouTube Shorts</option>
+                <option value="TikTok">TikTok</option>
+                <option value="Instagram Reels">Instagram Reels</option>
+              </select>
+            </label>
+            <label>
+              Publishing frequency
+              <select id="publishing-frequency" name="publishing_frequency" required>
+                <option value="One episode test">One episode test</option>
+                <option value="Weekly">Weekly</option>
+                <option value="Twice per week">Twice per week</option>
+                <option value="Monthly batch">Monthly batch</option>
+              </select>
+            </label>
+            <label>
+              Main goal
+              <select id="inquiry-goal" name="clip_goal" required>
+                <option value="authority">Authority</option>
+                <option value="leads">Leads</option>
+                <option value="education">Education</option>
+                <option value="product awareness">Product awareness</option>
+              </select>
+            </label>
+            <label class="checkbox-row">
+              <input id="inquiry-rights" name="rights_confirmation" type="checkbox" required>
+              <span>I confirm I own this content or have permission to process, edit, and republish it.</span>
+            </label>
+            <p class="form-error" id="inquiry-error" role="alert"></p>
+            <button class="button primary" type="submit" data-submit-mode="copy">Prepare inquiry summary</button>
+            <button class="button secondary dark-button" type="submit" data-submit-mode="hosted">Submit hosted form</button>
+            <p class="hosted-submit-note">
+              The hosted form button works after deployment to a static host that supports form capture, such as Netlify.
+            </p>
+          </form>
+
+          <article class="summary-panel">
+            <div class="panel-header">
+              <span>Inquiry summary</span>
+              <span id="summary-state">Not prepared</span>
+            </div>
+            <textarea id="inquiry-summary" readonly rows="13" placeholder="Generate an inquiry summary to see the full request here."></textarea>
+            <div class="summary-actions">
+              <button class="button primary" id="copy-summary" type="button">Copy summary</button>
+              <a class="button secondary dark-button disabled-link" id="mailto-link" href="#" aria-disabled="true">Email draft unavailable</a>
+            </div>
+            <p class="contact-note">
+              Email draft is disabled until the public sender account is restored or replaced. Copy the summary and send it by the active social/profile channel.
+            </p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>ClipFactory is a manual video repurposing service. Results depend on the source episode, audience, editing quality, and publishing consistency.</p>
+      <p>Only submit videos you own or have permission to process and republish. No views, revenue, follower growth, or platform approval is guaranteed.</p>
+    </footer>
+
+    <script src="clipfactory.js"></script>
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">ClipFactory social share card</title>
+  <desc id="desc">Long-form episode to short-form clip audit preview.</desc>
+  <rect width="1200" height="630" fill="#17211f"/>
+  <rect x="70" y="70" width="1060" height="490" rx="28" fill="#fbfbf7"/>
+  <rect x="110" y="112" width="86" height="86" rx="18" fill="#17211f"/>
+  <text x="153" y="168" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="800">C</text>
+  <text x="220" y="148" fill="#0b746b" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="800">ClipFactory</text>
+  <text x="110" y="285" fill="#17211f" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="900">Turn one long-form</text>
+  <text x="110" y="370" fill="#17211f" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="900">episode into clips.</text>
+  <text x="112" y="452" fill="#5b6763" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="600">Hooks, titles, captions, platform fit, and editor notes.</text>
+  <rect x="784" y="114" width="286" height="170" rx="18" fill="#0b746b"/>
+  <text x="927" y="174" text-anchor="middle" fill="#ffd18c" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800">00:12:40 - 00:13:25</text>
+  <text x="927" y="222" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800">Best short-form</text>
+  <text x="927" y="258" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="800">moment</text>
+  <rect x="784" y="310" width="286" height="58" rx="14" fill="#f0684f"/>
+  <text x="927" y="349" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800">5 sample opportunities</text>
+  <rect x="784" y="386" width="286" height="58" rx="14" fill="#d6a938"/>
+  <text x="927" y="425" text-anchor="middle" fill="#17211f" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="800">$149 manual audit</text>
+</svg>
