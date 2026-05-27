@@ -187,7 +187,9 @@ function syncInquiryFields(data) {
   document.querySelector("#inquiry-video-url").value = data.videoUrl;
   document.querySelector("#inquiry-platform").value = data.targetPlatform;
   document.querySelector("#inquiry-goal").value = data.clipGoal;
-  document.querySelector("#buyer-email").value = data.email;
+  if (data.email) {
+    document.querySelector("#buyer-email").value = data.email;
+  }
   document.querySelector("#inquiry-rights").checked = true;
 }
 
@@ -208,9 +210,6 @@ function validateAnalyzer(data) {
   }
   if (!isValidUrl(data.videoUrl)) {
     return "Use a full public URL that starts with http:// or https://.";
-  }
-  if (!data.email) {
-    return "Add an email address so the full audit quote can be prepared.";
   }
   if (!data.rightsConfirmed) {
     return "Confirm that you own the content or have permission to process and republish it.";
@@ -235,9 +234,6 @@ function validateInquiry(data) {
   if (!data.name) {
     return "Add your name before preparing the inquiry.";
   }
-  if (!data.email) {
-    return "Add your email before preparing the inquiry.";
-  }
   if (!data.videoUrl || !isValidUrl(data.videoUrl)) {
     return "Add a full public video URL that starts with http:// or https://.";
   }
@@ -252,7 +248,7 @@ function buildInquirySummary(data) {
     "ClipFactory inquiry",
     "",
     `Name: ${data.name}`,
-    `Email: ${data.email}`,
+    `Email: ${data.email || "Not provided; replying through public channel"}`,
     `Video URL: ${data.videoUrl}`,
     `Target platform: ${data.targetPlatform}`,
     `Publishing frequency: ${data.frequency}`,
