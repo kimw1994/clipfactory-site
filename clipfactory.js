@@ -79,6 +79,50 @@ const githubIssueBase = "https://github.com/kimw1994/clipfactory-site/issues/new
 const linkedinReplyFallbackUrl = "https://www.linkedin.com/feed/update/urn:li:share:7465434280165261312";
 const fiverrServiceUrl = "https://www.fiverr.com/vitalease/design-an-ai-workflow-automation-for-your-small-business";
 
+const prefillAliases = {
+  package: {
+    audit: "$149 Clip Audit",
+    clipaudit: "$149 Clip Audit",
+    starter: "$499 Starter monthly",
+    growth: "$999 Growth monthly",
+    dfy: "$1,999 Done-for-you monthly",
+    doneforyou: "$1,999 Done-for-you monthly",
+    done: "$1,999 Done-for-you monthly",
+    "149": "$149 Clip Audit",
+    "499": "$499 Starter monthly",
+    "999": "$999 Growth monthly",
+    "1999": "$1,999 Done-for-you monthly"
+  },
+  platform: {
+    linkedin: "LinkedIn",
+    shorts: "YouTube Shorts",
+    youtubeshorts: "YouTube Shorts",
+    youtube: "YouTube Shorts",
+    tiktok: "TikTok",
+    reels: "Instagram Reels",
+    instagram: "Instagram Reels",
+    instagramreels: "Instagram Reels"
+  },
+  goal: {
+    authority: "authority",
+    leads: "leads",
+    education: "education",
+    awareness: "product awareness",
+    product: "product awareness",
+    productawareness: "product awareness"
+  },
+  frequency: {
+    test: "One episode test",
+    oneepisode: "One episode test",
+    oneepisodetest: "One episode test",
+    weekly: "Weekly",
+    twice: "Twice per week",
+    twiceperweek: "Twice per week",
+    monthly: "Monthly batch",
+    monthlybatch: "Monthly batch"
+  }
+};
+
 function cleanValue(value) {
   return String(value || "").trim();
 }
@@ -117,6 +161,73 @@ function showError(element, message) {
 
 function clearError(element) {
   element.textContent = "";
+}
+
+function prefillKey(value) {
+  return cleanValue(value).toLowerCase().replace(/[^a-z0-9]+/g, "");
+}
+
+function firstParam(params, names) {
+  for (const name of names) {
+    const value = cleanValue(params.get(name));
+    if (value) {
+      return value;
+    }
+  }
+  return "";
+}
+
+function resolveSelectValue(select, rawValue, aliases) {
+  const direct = Array.from(select.options).find((option) => option.value.toLowerCase() === rawValue.toLowerCase());
+  if (direct) {
+    return direct.value;
+  }
+
+  return aliases[prefillKey(rawValue)] || "";
+}
+
+function setSelectFromUrl(params, selectors, names, aliases) {
+  const rawValue = firstParam(params, names);
+  if (!rawValue) {
+    return false;
+  }
+
+  let applied = false;
+  selectors.forEach((selector) => {
+    const select = document.querySelector(selector);
+    if (!select) {
+      return;
+    }
+
+    const resolved = resolveSelectValue(select, rawValue, aliases);
+    if (resolved) {
+      select.value = resolved;
+      applied = true;
+    }
+  });
+
+  return applied;
+}
+
+function applyUrlPrefill() {
+  const params = new URLSearchParams(window.location.search);
+  let applied = false;
+
+  applied = setSelectFromUrl(params, ["#requested-package"], ["package", "pkg", "plan", "requested_package"], prefillAliases.package) || applied;
+  applied = setSelectFromUrl(params, ["#target-platform", "#inquiry-platform"], ["platform", "target_platform"], prefillAliases.platform) || applied;
+  applied = setSelectFromUrl(params, ["#clip-goal", "#inquiry-goal"], ["goal", "clip_goal"], prefillAliases.goal) || applied;
+  applied = setSelectFromUrl(params, ["#publishing-frequency"], ["frequency", "publishing_frequency", "cadence"], prefillAliases.frequency) || applied;
+
+  const videoUrl = firstParam(params, ["video_url", "video", "url"]);
+  if (videoUrl && isValidUrl(videoUrl)) {
+    document.querySelector("#video-url").value = videoUrl;
+    document.querySelector("#inquiry-video-url").value = videoUrl;
+    applied = true;
+  }
+
+  if (applied && summaryState) {
+    summaryState.textContent = "Link preferences loaded";
+  }
 }
 
 function createOpportunity(index, data) {
@@ -522,6 +633,8 @@ copySummary?.addEventListener("click", async () => {
 if (trafficSourceInput) {
   trafficSourceInput.value = getTrafficSource();
 }
+
+applyUrlPrefill();
 
 if (hostedSubmit && window.location.hostname.endsWith("github.io")) {
   hostedSubmit.hidden = true;
