@@ -178,7 +178,9 @@ function renderOpportunities(opportunities) {
     .join("") +
     `
       <div class="output-cta">
-        <a class="button primary" href="#inquiry">Request a manual $149 Clip Audit</a>
+        <button class="button primary" type="button" data-output-action="copy-public-inquiry">Copy public inquiry</button>
+        <button class="button secondary dark-button" type="button" data-output-action="github-public-inquiry">Open public GitHub inquiry</button>
+        <a class="button secondary dark-button" href="#inquiry">Edit inquiry details</a>
       </div>
     `;
 }
@@ -292,6 +294,34 @@ function buildGithubIssueUrl(data) {
   return `${githubIssueBase}?${params.toString()}`;
 }
 
+async function copyTextToClipboard(text) {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch {
+    inquirySummary.value = text;
+    inquirySummary.select();
+    document.execCommand("copy");
+    return true;
+  }
+}
+
+function preparePublicInquiryFromSyncedFields() {
+  const data = getInquiryData();
+  const validationMessage = validateInquiry(data);
+
+  if (validationMessage) {
+    showError(inquiryError, validationMessage);
+    summaryState.textContent = "Needs input";
+    return null;
+  }
+
+  clearError(inquiryError);
+  const summary = buildPublicInquirySummary(data);
+  inquirySummary.value = summary;
+  return { data, summary };
+}
+
 analyzerForm?.addEventListener("submit", (event) => {
   event.preventDefault();
   const data = getAnalyzerData();
@@ -308,6 +338,36 @@ analyzerForm?.addEventListener("submit", (event) => {
   renderOpportunities(opportunities);
   syncInquiryFields(data);
   auditState.textContent = "Generated";
+});
+
+clipResults?.addEventListener("click", async (event) => {
+  const actionButton = event.target.closest("[data-output-action]");
+  if (!actionButton) {
+    return;
+  }
+
+  const prepared = preparePublicInquiryFromSyncedFields();
+  if (!prepared) {
+    return;
+  }
+
+  if (actionButton.dataset.outputAction === "copy-public-inquiry") {
+    await copyTextToClipboard(prepared.summary);
+    summaryState.textContent = "Copied public summary";
+    auditState.textContent = "Inquiry copied";
+    return;
+  }
+
+  if (actionButton.dataset.outputAction === "github-public-inquiry") {
+    summaryState.textContent = "Opening GitHub";
+    auditState.textContent = "Opening inquiry";
+    const opened = window.open(buildGithubIssueUrl(prepared.data), "_blank", "noopener,noreferrer");
+    if (!opened) {
+      summaryState.textContent = "Copy public summary";
+      auditState.textContent = "Popup blocked";
+      showError(inquiryError, "The browser blocked the GitHub inquiry window. Copy the public summary and open the GitHub repo link manually.");
+    }
+  }
 });
 
 inquiryForm?.addEventListener("submit", (event) => {
@@ -373,14 +433,8 @@ copySummary?.addEventListener("click", async () => {
     return;
   }
 
-  try {
-    await navigator.clipboard.writeText(summary);
-    summaryState.textContent = "Copied";
-  } catch {
-    inquirySummary.select();
-    document.execCommand("copy");
-    summaryState.textContent = "Copied";
-  }
+  await copyTextToClipboard(summary);
+  summaryState.textContent = "Copied";
 });
 
 if (trafficSourceInput) {
