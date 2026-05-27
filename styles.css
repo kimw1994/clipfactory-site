@@ -841,6 +841,93 @@ pre {
   background: #fff7ef;
 }
 
+.sample-audit-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 420px);
+  gap: clamp(24px, 4vw, 48px);
+  align-items: center;
+  padding: clamp(54px, 7vw, 86px) clamp(18px, 5vw, 64px) clamp(32px, 4vw, 48px);
+  background:
+    linear-gradient(115deg, rgba(23, 33, 31, 0.93), rgba(240, 104, 79, 0.55)),
+    url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1800&q=82") center / cover no-repeat;
+  color: var(--white);
+}
+
+.sample-audit-hero-copy h1 {
+  max-width: 980px;
+}
+
+.sample-audit-hero-copy .hero-copy {
+  max-width: 760px;
+}
+
+.sample-deliverable-card {
+  display: grid;
+  gap: 14px;
+  padding: 26px;
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.sample-deliverable-card ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 800;
+}
+
+.sample-audit-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 430px);
+  gap: 24px;
+  align-items: start;
+}
+
+.sample-audit-list {
+  display: grid;
+  gap: 16px;
+}
+
+.sample-opportunity,
+.sample-request-panel {
+  padding: 22px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.sample-opportunity dl div {
+  padding-top: 12px;
+}
+
+.sample-opportunity dd,
+.sample-request-panel p {
+  color: var(--muted);
+}
+
+.sample-request-panel {
+  position: sticky;
+  top: 92px;
+  display: grid;
+  gap: 14px;
+}
+
+.sample-request-panel textarea {
+  min-height: 270px;
+  resize: vertical;
+  background: #111816;
+  color: #e7f6ef;
+  font: 0.92rem/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.sample-audit-proof-band {
+  background: #edf4f0;
+}
+
 .sample-audit-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1017,6 +1104,8 @@ textarea,
   .scorecard-grid,
   .scorecard-tool-hero,
   .scorecard-tool-grid,
+  .sample-audit-hero,
+  .sample-audit-layout,
   .mini-audit-grid,
   .two-col,
   .clip-hero,
@@ -1038,6 +1127,10 @@ textarea,
   }
 
   .score-result-panel {
+    position: static;
+  }
+
+  .sample-request-panel {
     position: static;
   }
 }
