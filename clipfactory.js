@@ -231,9 +231,6 @@ function getInquiryData() {
 }
 
 function validateInquiry(data) {
-  if (!data.name) {
-    return "Add your name before preparing the inquiry.";
-  }
   if (!data.videoUrl || !isValidUrl(data.videoUrl)) {
     return "Add a full public video URL that starts with http:// or https://.";
   }
@@ -243,11 +240,15 @@ function validateInquiry(data) {
   return "";
 }
 
+function inquiryDisplayName(data) {
+  return data.name || "Public visitor";
+}
+
 function buildInquirySummary(data) {
   return [
     "ClipFactory inquiry",
     "",
-    `Name: ${data.name}`,
+    `Name: ${inquiryDisplayName(data)}`,
     `Email: ${data.email || "Not provided; replying through public channel"}`,
     `Video URL: ${data.videoUrl}`,
     `Target platform: ${data.targetPlatform}`,
@@ -267,7 +268,7 @@ function buildPublicInquirySummary(data) {
   return [
     "ClipFactory public inquiry",
     "",
-    `Name: ${data.name}`,
+    `Name: ${inquiryDisplayName(data)}`,
     `Video URL: ${data.videoUrl}`,
     `Target platform: ${data.targetPlatform}`,
     `Publishing frequency: ${data.frequency}`,
@@ -284,7 +285,7 @@ function buildPublicInquirySummary(data) {
 
 function buildGithubIssueUrl(data) {
   const params = new URLSearchParams({
-    title: `ClipFactory inquiry - ${data.name}`,
+    title: `ClipFactory inquiry - ${inquiryDisplayName(data)}`,
     body: buildPublicInquirySummary(data)
   });
 
