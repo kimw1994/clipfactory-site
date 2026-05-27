@@ -73,6 +73,7 @@ const hostedSubmitNote = document.querySelector(".hosted-submit-note");
 const summaryState = document.querySelector("#summary-state");
 const trafficSourceInput = document.querySelector("#traffic-source");
 const githubIssueBase = "https://github.com/kimw1994/clipfactory-site/issues/new";
+const linkedinReplyFallbackUrl = "https://www.linkedin.com/feed/update/urn:li:share:7465347581661970432";
 
 function cleanValue(value) {
   return String(value || "").trim();
@@ -179,6 +180,7 @@ function renderOpportunities(opportunities) {
     `
       <div class="output-cta">
         <button class="button primary" type="button" data-output-action="copy-public-inquiry">Copy public inquiry</button>
+        <button class="button secondary dark-button" type="button" data-output-action="linkedin-public-reply">Copy + reply on LinkedIn</button>
         <button class="button secondary dark-button" type="button" data-output-action="github-public-inquiry">Open public GitHub inquiry</button>
         <a class="button secondary dark-button" href="#inquiry">Edit inquiry details</a>
       </div>
@@ -294,6 +296,10 @@ function buildGithubIssueUrl(data) {
   return `${githubIssueBase}?${params.toString()}`;
 }
 
+function getLinkedinReplyUrl() {
+  return document.querySelector("#linkedin-reply-link")?.href || linkedinReplyFallbackUrl;
+}
+
 async function copyTextToClipboard(text) {
   try {
     await navigator.clipboard.writeText(text);
@@ -355,6 +361,19 @@ clipResults?.addEventListener("click", async (event) => {
     await copyTextToClipboard(prepared.summary);
     summaryState.textContent = "Copied public summary";
     auditState.textContent = "Inquiry copied";
+    return;
+  }
+
+  if (actionButton.dataset.outputAction === "linkedin-public-reply") {
+    const copyPromise = copyTextToClipboard(prepared.summary);
+    const opened = window.open(getLinkedinReplyUrl(), "_blank", "noopener,noreferrer");
+    await copyPromise;
+    summaryState.textContent = "Copied for LinkedIn";
+    auditState.textContent = opened ? "Opening LinkedIn" : "Popup blocked";
+
+    if (!opened) {
+      showError(inquiryError, "The browser blocked the LinkedIn window. The public summary was copied; open the LinkedIn post link manually.");
+    }
     return;
   }
 
