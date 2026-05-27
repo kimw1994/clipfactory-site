@@ -149,8 +149,16 @@
               Tighten the opening sentence, add caption context, or choose a more decision-focused timestamp before editing.
             </p>
             <textarea id="scorecard-summary" readonly rows="10"></textarea>
+            <label class="checkbox-row scorecard-rights-row">
+              <input id="scorecard-rights" type="checkbox">
+              <span>I confirm I own this content or have permission to process, edit, and republish it.</span>
+            </label>
+            <p class="form-error" id="scorecard-error" role="alert"></p>
             <div class="summary-actions">
               <button class="button primary" id="copy-scorecard-summary" type="button">Copy score summary</button>
+              <button class="button secondary dark-button" type="button" data-scorecard-action="copy-audit-inquiry">Copy audit inquiry</button>
+              <button class="button secondary dark-button" type="button" data-scorecard-action="linkedin-audit-inquiry">Copy + reply on LinkedIn</button>
+              <button class="button secondary dark-button" type="button" data-scorecard-action="github-audit-inquiry">Open public GitHub inquiry</button>
               <a class="button secondary dark-button" id="scorecard-analyzer-link" href="index.html?src=scorecard-result#analyzer">Open free analyzer</a>
             </div>
             <p class="contact-note">
