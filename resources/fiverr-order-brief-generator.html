@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fiverr Order Brief Generator | ClipFactory</title>
+    <meta
+      name="description"
+      content="Create a concise Fiverr-ready project brief for a ClipFactory audit or video repurposing workflow without sharing private files or leaving Fiverr."
+    >
+    <meta property="og:title" content="Fiverr Order Brief Generator">
+    <meta property="og:description" content="Turn a public episode link and project goal into a clear Fiverr project brief.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://kimw1994.github.io/clipfactory-site/resources/fiverr-order-brief-generator.html">
+    <meta property="og:image" content="https://kimw1994.github.io/clipfactory-site/assets/clipfactory-share-card.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Fiverr Order Brief Generator">
+    <meta name="twitter:description" content="Copy a structured ClipFactory brief and continue inside Fiverr.">
+    <meta name="twitter:image" content="https://kimw1994.github.io/clipfactory-site/assets/clipfactory-share-card.png">
+    <link rel="canonical" href="https://kimw1994.github.io/clipfactory-site/resources/fiverr-order-brief-generator.html">
+    <link rel="stylesheet" href="../styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Fiverr Order Brief Generator",
+        "description": "Create a Fiverr-ready brief for a ClipFactory audit or video repurposing workflow.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Add the public source link",
+            "text": "Paste a public podcast, webinar, founder interview, YouTube episode, or LinkedIn Live URL."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Choose platform and scope",
+            "text": "Select the target platform, publishing cadence, paid step, and avoid-list."
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Copy into Fiverr",
+            "text": "Copy the generated brief into Fiverr chat or order requirements and keep communication and payment inside Fiverr."
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body class="clipfactory-page resource-page">
+    <header class="site-header">
+      <a class="brand" href="../" aria-label="ClipFactory home">
+        <span class="brand-mark">C</span>
+        <span>ClipFactory</span>
+      </a>
+      <nav aria-label="Primary">
+        <a href="../#analyzer">Free analysis</a>
+        <a href="video-repurposing-pricing-calculator.html?src=brief-nav">Pricing guide</a>
+        <a href="clip-audit-buyer-faq.html?src=brief-nav">FAQ</a>
+        <a href="../sample-audit.html?src=brief-nav">Sample</a>
+      </nav>
+      <a class="header-cta" href="#generator">Build brief</a>
+    </header>
+
+    <main>
+      <section class="resource-hero">
+        <div class="resource-hero-grid">
+          <div class="resource-hero-copy">
+            <p class="eyebrow">Fiverr-ready handoff</p>
+            <h1>Turn your episode details into a clean Fiverr project brief.</h1>
+            <p class="hero-copy">
+              Use this page when you want the fastest compliant path from a public ClipFactory resource to a Fiverr
+              inquiry. It creates a concise brief you can copy into Fiverr chat or order requirements.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#generator">Generate brief</a>
+              <a class="button secondary" href="#rules">Read rules</a>
+            </div>
+          </div>
+          <div class="resource-visual" aria-label="Fiverr order brief preview">
+            <img src="../assets/clipfactory-share-card.png" alt="ClipFactory Fiverr brief generator preview">
+            <div class="resource-visual-note">
+              <span>Fiverr-safe</span>
+              <strong>Public link -> clear scope -> copy into Fiverr -> no off-platform payment</strong>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section resource-nav-band" aria-label="Brief generator sections">
+        <div class="resource-nav">
+          <a href="#generator">Generator</a>
+          <a href="#rules">Rules</a>
+          <a href="#copy">Copy brief</a>
+          <a href="#next-step">Open Fiverr</a>
+        </div>
+      </section>
+
+      <section class="section worksheet-band" id="generator">
+        <div class="section-heading">
+          <p class="eyebrow">Brief generator</p>
+          <h2>Copy this brief into Fiverr when you are ready to ask for scope.</h2>
+          <p>
+            Keep all communication and payment inside Fiverr. Do not paste passwords, private customer data,
+            confidential files, or unsupported performance claims into public comments or external forms.
+          </p>
+        </div>
+        <div class="analyzer-grid">
+          <form class="analyzer-form" id="fiverr-brief-form" novalidate>
+            <label>
+              Public source link
+              <input id="brief-source-url" name="source_url" type="url" placeholder="https://youtube.com/watch?v=..." required>
+            </label>
+            <label>
+              Content type
+              <select id="brief-content-type" name="content_type" required>
+                <option value="podcast episode">Podcast episode</option>
+                <option value="webinar replay">Webinar replay</option>
+                <option value="founder interview">Founder interview</option>
+                <option value="YouTube episode">YouTube episode</option>
+                <option value="LinkedIn Live">LinkedIn Live</option>
+              </select>
+            </label>
+            <label>
+              Target platform
+              <select id="brief-platform" name="target_platform" required>
+                <option value="LinkedIn">LinkedIn</option>
+                <option value="YouTube Shorts">YouTube Shorts</option>
+                <option value="TikTok">TikTok</option>
+                <option value="Instagram Reels">Instagram Reels</option>
+              </select>
+            </label>
+            <label>
+              Best paid step
+              <select id="brief-package" name="requested_package" required>
+                <option value="$149 Clip Audit">$149 Clip Audit</option>
+                <option value="$499 Starter workflow">$499 Starter workflow</option>
+                <option value="$999 Growth workflow">$999 Growth workflow</option>
+                <option value="$1,999 done-for-you workflow">$1,999 done-for-you workflow</option>
+              </select>
+            </label>
+            <label>
+              Publishing cadence
+              <select id="brief-cadence" name="cadence" required>
+                <option value="one episode test">One episode test</option>
+                <option value="weekly">Weekly</option>
+                <option value="twice per week">Twice per week</option>
+                <option value="monthly batch">Monthly batch</option>
+              </select>
+            </label>
+            <label>
+              Goal
+              <select id="brief-goal" name="goal" required>
+                <option value="authority">Authority</option>
+                <option value="leads">Leads</option>
+                <option value="education">Education</option>
+                <option value="product awareness">Product awareness</option>
+              </select>
+            </label>
+            <label>
+              Avoid-list
+              <textarea id="brief-avoid-list" name="avoid_list" rows="4" placeholder="Names, claims, customer details, regulated topics, or phrases to avoid."></textarea>
+            </label>
+            <label class="checkbox-row">
+              <input id="brief-rights" name="rights_confirmation" type="checkbox" required>
+              <span>I confirm I own this content or have permission to process, edit, and republish it.</span>
+            </label>
+            <p class="form-error" id="fiverr-brief-error" role="alert"></p>
+            <button class="button primary" type="submit">Generate Fiverr brief</button>
+          </form>
+
+          <article class="summary-panel" id="copy">
+            <div class="panel-header">
+              <span>Fiverr project brief</span>
+              <span id="fiverr-brief-state">Ready</span>
+            </div>
+            <textarea id="fiverr-brief-output" readonly rows="17" placeholder="Generate a Fiverr-ready brief to see it here."></textarea>
+            <div class="summary-actions">
+              <button class="button primary" id="fiverr-brief-copy" type="button">Copy brief</button>
+              <a
+                class="button secondary dark-button"
+                id="fiverr-brief-open"
+                href="https://www.fiverr.com/vitalease/design-an-ai-workflow-automation-for-your-small-business?source=clipfactory_brief_generator"
+                target="_blank"
+                rel="noopener"
+              >Open Fiverr service</a>
+            </div>
+            <p class="form-footnote">
+              This page does not collect payment. Final scope, delivery, and payment must stay inside Fiverr.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section checklist-band" id="rules">
+        <div class="section-heading">
+          <p class="eyebrow">Scope rules</p>
+          <h2>Use a clear brief before asking for a custom workflow.</h2>
+        </div>
+        <div class="checklist-grid">
+          <article class="checklist-card">
+            <span class="feature-icon">01</span>
+            <h3>Start with a public link.</h3>
+            <p>Use a public episode link first. Private files can be discussed only after the Fiverr scope is clear.</p>
+          </article>
+          <article class="checklist-card">
+            <span class="feature-icon">02</span>
+            <h3>Name the platform.</h3>
+            <p>LinkedIn, Shorts, TikTok, and Reels need different hooks, captions, and cut logic.</p>
+          </article>
+          <article class="checklist-card">
+            <span class="feature-icon">03</span>
+            <h3>Confirm rights.</h3>
+            <p>The buyer must own or have permission to process, edit, and republish the source content.</p>
+          </article>
+          <article class="checklist-card">
+            <span class="feature-icon">04</span>
+            <h3>Keep claims factual.</h3>
+            <p>ClipFactory does not guarantee views, leads, sales, followers, revenue, virality, ad performance, or platform approval.</p>
+          </article>
+          <article class="checklist-card">
+            <span class="feature-icon">05</span>
+            <h3>Keep Fiverr first.</h3>
+            <p>Use Fiverr chat or order requirements for project details. Do not ask for off-platform payment.</p>
+          </article>
+          <article class="checklist-card">
+            <span class="feature-icon">06</span>
+            <h3>Choose the smallest step.</h3>
+            <p>When uncertain, start with the $149 Clip Audit before a larger monthly workflow.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section resource-cta-band" id="next-step">
+        <div class="resource-cta">
+          <div>
+            <p class="eyebrow">Next step</p>
+            <h2>Generate the brief, copy it, then continue inside Fiverr.</h2>
+            <p>
+              A good brief reduces back-and-forth and makes it easier to recommend the audit, starter workflow,
+              or a larger monthly scope.
+            </p>
+          </div>
+          <a
+            class="button primary"
+            href="https://www.fiverr.com/vitalease/design-an-ai-workflow-automation-for-your-small-business?source=clipfactory_brief_cta"
+            target="_blank"
+            rel="noopener"
+          >Open Fiverr service</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>ClipFactory provides human-reviewed planning assets for long-form video repurposing. It does not guarantee views, leads, sales, followers, revenue, virality, ad performance, or platform approval.</p>
+      <p><a href="../">Back to ClipFactory</a></p>
+    </footer>
+
+    <script>
+      const fiverrBriefForm = document.querySelector("#fiverr-brief-form");
+      const fiverrBriefError = document.querySelector("#fiverr-brief-error");
+      const fiverrBriefOutput = document.querySelector("#fiverr-brief-output");
+      const fiverrBriefState = document.querySelector("#fiverr-brief-state");
+      const fiverrBriefCopy = document.querySelector("#fiverr-brief-copy");
+
+      function briefValue(selector) {
+        return String(document.querySelector(selector).value || "").trim();
+      }
+
+      function validBriefUrl(value) {
+        try {
+          const url = new URL(value);
+          return url.protocol === "http:" || url.protocol === "https:";
+        } catch {
+          return false;
+        }
+      }
+
+      function buildBrief() {
+        const sourceUrl = briefValue("#brief-source-url");
+        const avoidList = briefValue("#brief-avoid-list") || "No specific avoid-list yet. I will confirm before final selection.";
+        return [
+          "ClipFactory Fiverr project brief",
+          "",
+          `Requested step: ${briefValue("#brief-package")}`,
+          `Public source link: ${sourceUrl}`,
+          `Content type: ${briefValue("#brief-content-type")}`,
+          `Target platform: ${briefValue("#brief-platform")}`,
+          `Publishing cadence: ${briefValue("#brief-cadence")}`,
+          `Primary goal: ${briefValue("#brief-goal")}`,
+          "",
+          "Requested deliverable:",
+          "- Review the public source and identify the strongest short-form clip opportunities.",
+          "- Provide timestamp hints, hook options, title ideas, caption starters, platform fit notes, and editor handoff notes.",
+          "- Recommend whether this should stay as a one-episode audit or move to a recurring workflow.",
+          "",
+          "Rights confirmation:",
+          "- I confirm that I own this content or have permission to process, edit, and republish it.",
+          "",
+          "Avoid-list:",
+          `- ${avoidList}`,
+          "",
+          "Boundaries:",
+          "- Keep all communication and payment inside Fiverr.",
+          "- Do not use private files, passwords, customer data, or unsupported claims unless they are explicitly scoped inside Fiverr.",
+          "- I understand this does not guarantee views, leads, sales, followers, revenue, virality, ad performance, or platform approval."
+        ].join("\n");
+      }
+
+      fiverrBriefForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        fiverrBriefError.textContent = "";
+        const sourceUrl = briefValue("#brief-source-url");
+        if (!validBriefUrl(sourceUrl)) {
+          fiverrBriefError.textContent = "Add a valid public http or https source link.";
+          return;
+        }
+        if (!document.querySelector("#brief-rights").checked) {
+          fiverrBriefError.textContent = "Confirm content rights before generating the Fiverr brief.";
+          return;
+        }
+        fiverrBriefOutput.value = buildBrief();
+        fiverrBriefState.textContent = "Generated";
+      });
+
+      fiverrBriefCopy.addEventListener("click", async () => {
+        if (!fiverrBriefOutput.value.trim()) {
+          fiverrBriefError.textContent = "Generate the brief first.";
+          return;
+        }
+        try {
+          await navigator.clipboard.writeText(fiverrBriefOutput.value);
+          fiverrBriefState.textContent = "Copied";
+          fiverrBriefError.textContent = "";
+        } catch {
+          fiverrBriefOutput.select();
+          fiverrBriefState.textContent = "Select and copy";
+        }
+      });
+    </script>
+  </body>
+</html>
